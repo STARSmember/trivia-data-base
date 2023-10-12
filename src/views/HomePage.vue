@@ -4,5 +4,12 @@
 </script>
 
 <template>
-  <h1 class="text-6xl font-thin text-slate-800">I'm Home Page</h1>
+  <div class="brand">
+    <img class="logo" src="logo.svg" alt="logo" />
+    <h1 class="title">Triviantastic</h1>
+    <img class="logo" src="logo.svg" alt="logo" />
+  </div>
+  <div class="categories">
+    <div v-for="n in 24" :key="n" class="category">Category - {{ n }}</div>
+  </div>
 </template>
