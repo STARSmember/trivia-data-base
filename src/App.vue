@@ -8,6 +8,6 @@
 
 <style lang="postcss" scoped>
 main {
-  @apply bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500
+  @apply h-screen bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500
 }
 </style>
