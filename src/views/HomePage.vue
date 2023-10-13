@@ -1,7 +1,7 @@
 <script setup>
 //import { ref } from 'vue'
 //const title = ref('Hello There ✋')
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import useAPI from '@/composables/useAPI'
 
 const api = useAPI()
