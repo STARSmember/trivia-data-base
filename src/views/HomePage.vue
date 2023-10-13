@@ -33,9 +33,9 @@
     & .category {
       @apply flex h-32 items-center justify-center rounded-lg border-4 border-green-500 py-4 text-center font-bold uppercase text-slate-600 transition-colors duration-300;
 
-      &:hover {
-        @apply cursor-pointer border-red-500 bg-red-500 text white;
-      }
+    &:hover {
+      @apply cursor-pointer border-red-500 bg-red-500 text-white;
+    }
     }
   }
 </stlye>
