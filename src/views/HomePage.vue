@@ -24,6 +24,7 @@ onMounted(async () => {
       {{ category.name }}
     </RouterLink>
   </div>
+  <p class="score">Score: 100</p>
 </template>
 
 <stlye lang="postcss" scoped>
@@ -49,5 +50,9 @@ onMounted(async () => {
       @apply cursor-pointer border-red-500 bg-red-500 text-white;
     }
     }
+  }
+
+  .score {
+    @apply absolute bottom-0 right-0 m-8 text-2xl font-bold uppercase text-slate-700;
   }
 </stlye>
