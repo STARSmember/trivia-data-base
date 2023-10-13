@@ -19,8 +19,9 @@ onMounted(async () => {
     <img class="logo" src="logo.svg" alt="logo" />
   </div>
   <div class="categories">
-    <RouterLink v-for="n in 24" :key="n" :to="`/question/category/${n}`" class="category">
-      Category - {{ n }}
+    <RouterLink v-for="category in categories" :key="category.id" :to="`/question/category/${category.id}`"
+     class="category">
+      {{ category.name }}
     </RouterLink>
   </div>
 </template>
