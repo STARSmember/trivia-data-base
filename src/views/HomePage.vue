@@ -1,6 +1,15 @@
 <script setup>
 //import { ref } from 'vue'
 //const title = ref('Hello There ✋')
+import { onMounted } from 'vue'
+import useAPI from '@/components/useAPI'
+
+const api = useAPI()
+const categories =ref([])
+
+onMounted(async () => {
+  categories.value = await api.getCategories()
+})
 </script>
 
 <template>
