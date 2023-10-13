@@ -1,5 +1,5 @@
 <script setup>
-import BaseTitle from '@/components/BaseTitle.vue'
+import BaseTitle from "@/components/BaseTitle.vue"
 </script>
 
 <template>

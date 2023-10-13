@@ -2,8 +2,8 @@
 //import { ref } from 'vue'
 //const title = ref('Hello There ✋')
 import { onMounted, ref } from 'vue'
-import useAPI from '@/composables/useAPI'
-import BaseTitle from '@/components/BaseTitle.vue'
+import useAPI from "@/composables/useAPI"
+import BaseTitle from "@/components/BaseTitle.vue"
 
 const api = useAPI()
 const categories =ref([])
@@ -14,7 +14,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <BaseTitle />
+  <BaseTitle>
+    </BaseTitle>
   <div class="categories">
     <RouterLink v-for="category in categories" :key="category.id" :to="`/question/category/${category.id}`"
      class="category">
@@ -24,18 +25,6 @@ onMounted(async () => {
   </template>
 
 <stlye lang="postcss" scoped>
-  .brand {
-    @apply flex items-center justify-center gap-4;
-
-    & .logo {
-      @apply h-16 w-16;
-    }
-
-    & .title {
-      @apply text-6xl font-thin uppercase tracking-widest text-slate-700;
-    }
-  }
-
   .categories {
     @apply grid flex-grow grid-cols-4 gap-12;
 
