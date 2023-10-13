@@ -24,7 +24,7 @@ onMounted(async () => {
   </div>
   </template>
 
-<stlye lang="postcss" scoped>
+<style lang="postcss" scoped>
   .categories {
     @apply grid flex-grow grid-cols-4 gap-12;
 
@@ -36,4 +36,4 @@ onMounted(async () => {
     }
     }
   }
-</stlye>
+</style>
