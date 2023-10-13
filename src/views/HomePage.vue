@@ -10,7 +10,7 @@
     <img class="logo" src="logo.svg" alt="logo" />
   </div>
   <div class="categories">
-    <RouterLink :to="`/question/cateory/${n}`" v-for="n in 24" :key="n" class="category">Category - {{ n }}
+    <RouterLink v-for="n in 24" :key="n" :to="`/question/category/${n}`" class="category">Category - {{ n }}
     </RouterLink>
   </div>
 </template>
