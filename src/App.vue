@@ -20,6 +20,5 @@ main {
 .score {
   @apply absolute bottom-6 right-8 text-2xl font-bold uppercase text-slate-700;
 }
-
 </style>
  
