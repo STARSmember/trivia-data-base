@@ -10,9 +10,12 @@
     <img class="logo" src="logo.svg" alt="logo" />
   </div>
   <div class="categories">
-    <div v-for="n in 24" :key="n" class="category">Category - {{ n }}</div>
-  </div>
-</template>
+ <RouterLink v-for="category in categories" :key="category.id" :to="`/question/category/${category.id}`"
+      class="category">
+      {{ category.name }}
+    </RouterLink>
+    </div>
+    </template>
 
 <stlye lang="postcss" scoped>
   .brand {
