@@ -12,7 +12,7 @@
   .brand {
     @apply flex items-center justify-center gap-4;
 
-    & .logo {
+    & :slotted(img) {
       @apply h-16 w-16;
     }
 
