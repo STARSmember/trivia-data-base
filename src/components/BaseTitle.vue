@@ -1,6 +1,10 @@
 <template>
   <div class="brand">
-   <slot />
+    <slot name="logo" />
+    <h1 class="title">
+      <slot />
+    </h1>
+    <slot name="logo" />
   </div>
 </template>
 
