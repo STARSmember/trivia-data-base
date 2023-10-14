@@ -1,8 +1,6 @@
 <template>
   <div class="brand">
-    <img class="logo" src="logo.svg" alt="logo" />
-    <h1 class="title">Triviantastic</h1>
-    <img class="logo" src="logo.svg" alt="logo" />
+   <slot />
   </div>
 </template>
 
