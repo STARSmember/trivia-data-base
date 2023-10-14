@@ -1,26 +1,58 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import useAPI from '@/composables/useAPI'
-
+import useColor from '@/composables/useColor'
 import BaseTitle from '@/components/BaseTitle.vue'
 
 const route = useRoute()
-
-const categoryID = route.params.id
-
+const colors = useColor()
 const api = useAPI()
 const question = ref(null)
-watch(
-  () => route.paramsid,
-  async () => {
-    question.value = await api.getQuestion(categoryID)
-  },
-)
+const answers = ref([])
+onMounted(async () => {
+  question.value = await api.getQuestion(route.params.id)
+  answers.value.push({
+    id: answers.value.length,
+    correct: true,
+    answer: question.value.correct_answer,
+  })
+  question.value.incorrect_answer.map((answer) => {
+    answers.value.push({
+      id: answers.value.length,
+      correct: false,
+      answer: question.value.correct_answer,
+    })
+  })
+})
 </script>
 
 <template>
-  <BaseTitle> I'm Question Page for {{ categoryID }}</BaseTitle>
-  <pre>{{ question }}</pre>
+  <div v-if="question" class="question-container">
+    <BaseTitle> {{ question.category }}</BaseTitle>
+    <p class="question">{{ question.question }}</p>
+    <div class="answers">
+      <div v-for="answer in answers" :key="answer.id" class="answer">
+        {{ answer.answer }}
+      </div>
+    </div>
+    <p>{{ answers }}</p>
+  </div>
+  <div v-else>Loading</div>
 </template>
+
+<style lang="postcss" scoped>
+.question-container {
+  @apply flex h-full flex-col items-center gap-8;
+  & .question {
+    @apply text-center text-2xl font-bold;
+  }
+  & .answers {
+    @apply grid flex-grow grid-cols-2 gap-8;
+  }
+  & .answer {
+    @apply flex min-w-full items-center justify-center rounded-lg text-4xl text-white;
+  }
+}
+</style>
