@@ -17,7 +17,7 @@ onMounted(async () => {
 
   <BaseTitle> 
     <template #logo>
-      <img class="logo" src="logo.svg" alt="logo" />
+      <img src="logo.svg" alt="logo" />
     </template>
     Triviantastic
   </BaseTitle>
