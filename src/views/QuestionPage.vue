@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import useAPI from '@/composables/useAPI'
@@ -11,8 +11,13 @@ const route = useRoute()
 const categoryID = route.params.id
 
 const api = useAPI()
-
-const question = await api.getQuestion(categoryID)
+const question = ref(null)
+watch(
+  () => route.paramsid,
+  async () => {
+    question.value = await api.getQuestion(categoryID)
+  },
+)
 </script>
 
 <template>
