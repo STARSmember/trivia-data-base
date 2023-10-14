@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import { useRoute } from 'vue-route'
+import { useRoute } from 'vue-router'
 
 import useAPI from '@/composables/useAPI'
 
