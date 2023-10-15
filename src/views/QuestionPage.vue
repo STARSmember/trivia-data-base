@@ -18,11 +18,11 @@ onMounted(async () => {
     correct: true,
     answer: question.value.correct_answer,
   })
-  question.value.incorrect_answer.map((answer) => {
+  question.value.incorrect_answers.map((answer) => {
     answers.value.push({
       id: answers.value.length,
       correct: false,
-      answer: question.value.correct_answer,
+      answer,
     })
   })
 })
@@ -31,28 +31,38 @@ onMounted(async () => {
 <template>
   <div v-if="question" class="question-container">
     <BaseTitle> {{ question.category }}</BaseTitle>
-    <p class="question">{{ question.question }}</p>
+    <div v-html="question.question" class="question"></div>
     <div class="answers">
-      <div v-for="answer in answers" :key="answer.id" class="answer">
-        {{ answer.answer }}
+      <div v-html="answer.answer" v-for="answer in answers" :key="answer.id"  class="answer" :class="colors.getColor(answer.id)">
       </div>
     </div>
-    <p>{{ answers }}</p>
+
   </div>
-  <div v-else>Loading</div>
+  <div v-else class="loading">Loading...</div>
+
 </template>
 
 <style lang="postcss" scoped>
 .question-container {
-  @apply flex h-full flex-col items-center gap-8;
+  @apply flex h-full w-full flex-col items-center gap-8 p-10;
+
   & .question {
     @apply text-center text-2xl font-bold;
   }
+
   & .answers {
-    @apply grid flex-grow grid-cols-2 gap-8;
+    @apply grid w-full flex-grow grid-cols-2 gap-8;
+    &:hover {
+      @apply cursor-pointer;
+    }
+
+    & .answer {
+      @apply flex items-center justify-center rounded-lg text-center text-4xl text-black;
+    }
   }
-  & .answer {
-    @apply flex min-w-full items-center justify-center rounded-lg text-4xl text-white;
-  }
+}
+
+.loading {
+  @apply flex h-full w-full items-center justify-center text-7xl;
 }
 </style>
